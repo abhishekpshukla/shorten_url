@@ -10,7 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_04_27_102439) do
+ActiveRecord::Schema.define(version: 2018_04_27_111422) do
+
+  create_table "url_shortens", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "user_id"
+    t.text "original_url"
+    t.string "short_url"
+    t.integer "clicks", default: 0
+    t.datetime "expire_at"
+    t.boolean "is_disable", default: false
+    t.string "ip_address"
+    t.string "geo_location"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_url_shortens_on_user_id"
+  end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -29,4 +43,5 @@ ActiveRecord::Schema.define(version: 2018_04_27_102439) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "url_shortens", "users"
 end

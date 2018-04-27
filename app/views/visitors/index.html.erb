@@ -7,16 +7,16 @@
            <h1 class="mb-5"></h1>
          </div>
          <div class="col-md-10 col-lg-8 col-xl-7 mx-auto">
-           <form>
+           <%= form_for @url_shorten, html: { remote: true } do |f| %>
              <div class="form-row">
                <div class="col-12 col-md-8 mb-2 mb-md-0">
-                 <input type="email" class="form-control form-control-lg" placeholder="Enter Original URL">
+                  <%= f.text_field :original_url, class: 'form-control form-control-lg', type: 'url', placeholder: 'Enter Original URL', autofocus: true, autocomplete: 'off' %>
                </div>
                <div class="col-12 col-md-4">
                  <button type="submit" class="btn btn-block btn-lg btn-primary text-uppercase">Shorten URL</button>
                </div>
              </div>
-           </form>
+           <%- end -%>
          </div>
        </div>
      </div>

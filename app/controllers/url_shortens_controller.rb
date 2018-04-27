@@ -2,7 +2,12 @@ class UrlShortensController < ApplicationController
 
 	def create
 		@url_shorten = UrlShorten.new(url_shorten_params)
-		p @url_shorten.valid?
+		# respond_to do |format|
+		# 	if @url_shorten.save
+
+		# 	else
+		# 	end
+		# end
 	end
 
 	private

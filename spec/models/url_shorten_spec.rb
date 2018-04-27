@@ -47,16 +47,6 @@ RSpec.describe UrlShorten, type: :model do
   		expect(subject).to be_valid
   	end
 
-  	it "should not be valid if the short_url is not present" do
-  		subject.short_url =  nil
-  		expect(subject).to_not be_valid
-  	end
-
-  	it "should not be valid if the short_url format is not the valid URL" do
-  		subject.short_url =  "THIS_IS_NOT_A_VALID_URL"
-  		expect(subject).to_not be_valid
-  	end
-
   	it 'should not save duplicate URL' do
   		short_url_one = subject.save
   		short_url_two = build(:url_shorten)

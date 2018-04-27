@@ -15,13 +15,30 @@
 #  updated_at   :datetime         not null
 #
 
+require 'convert_url'
 class UrlShorten < ApplicationRecord
+	# include ConvertUrl
   belongs_to :user, required: false
 
-  validates :original_url, :short_url, presence: true, url: true
-  validates :short_url, uniqueness: true
+  validates :original_url, presence: true, url: true
+  # validates :short_url, uniqueness: true
 
   before_save :set_expiry_date
+  before_save :shorten_original_url
+
+  protected
+
+  def shorten_original_url
+  	new_short_url = ConvertUrl.new(self.original_url)
+  	
+  	# just to make sure that short_url is not present
+  	begin
+  		short_url = new_short_url.convert
+  		if UrlShorten.where(short_url: short_url).first.nil?
+  			self.short_url = short_url 	
+  		end
+  	end until self.short_url.present?
+  end
 
   private
 

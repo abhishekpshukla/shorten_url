@@ -62,6 +62,7 @@ group :test do
   gem 'faker'
   gem 'guard-rspec'
   gem 'launchy'
+  gem 'simplecov', require: false
 end
 
 group :development, :test do
@@ -75,6 +76,3 @@ gem 'devise'
 gem 'bootstrap', '~> 4.1.0'
 gem 'jquery-rails'
 gem 'font-awesome-sass', '~> 5.0.9'
-
-
-

@@ -13,11 +13,16 @@ class UrlShortensController < ApplicationController
 					}
 			else
 				@url_shorten = UrlShorten.new(url_shorten_params)
-				# Need to write a code for after save....
 				if @url_shorten.save
-					format.js {}
+					format.js {
+						render action: 'create',
+						locals: {
+							short_url: "http://#{request.host}/#{@url_shorten.short_url}",
+							original_url: @url_shorten.original_url		
+						}
+					}
 				else
-					format.js {}
+					format.js { render json: @url_shorten.errors, status: :unprocessable_entity }
 				end
 			end
 		end

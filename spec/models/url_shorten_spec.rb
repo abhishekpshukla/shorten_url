@@ -48,8 +48,8 @@ RSpec.describe UrlShorten, type: :model do
   	end
 
   	it 'should not save duplicate URL' do
-  		short_url_one = subject.save
-  		short_url_two = build(:url_shorten)
+  		short_url_one = create(:url_shorten)
+  		short_url_two = build(:url_shorten, short_url: short_url_one.short_url)
   		expect(short_url_two).to_not be_valid	
   	end
   end

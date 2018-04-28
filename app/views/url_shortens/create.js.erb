@@ -1,2 +1,6 @@
-$("#showOriginalUrl").html(' <%= link_to(original_url, original_url, target: "blank") %>');
-$("#showshortUrl").html(' <%= link_to(short_url, short_url, target: "blank") %>')
+<% if @url_shorten.present? && @url_shorten.errors.any? %>
+  alert("ERROR(S): <%= j @url_shorten.errors.full_messages.join('; ') %>")
+<% else %>
+	$("#showOriginalUrl").html(' <%= link_to(original_url, original_url, target: "blank") %>');
+	$("#showshortUrl").html(' <%= link_to(short_url, short_url, target: "blank") %>')
+<% end %>

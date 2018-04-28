@@ -21,7 +21,7 @@ class UrlShorten < ApplicationRecord
   belongs_to :user, required: false
 
   validates :original_url, presence: true, url: true
-  # validates :short_url, uniqueness: true
+  validates :short_url, uniqueness: true
 
   before_save :set_expiry_date
   before_save :shorten_original_url

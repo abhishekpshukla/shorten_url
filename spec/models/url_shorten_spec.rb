@@ -43,7 +43,7 @@ RSpec.describe UrlShorten, type: :model do
   describe "#short_url" do
   	subject { build(:url_shorten) }
   	
-  	it "Should validate presence" do
+  	it "should validate presence" do
   		expect(subject).to be_valid
   	end
 
@@ -52,6 +52,17 @@ RSpec.describe UrlShorten, type: :model do
   		short_url_two = build(:url_shorten, short_url: short_url_one.short_url)
   		expect(short_url_two).to_not be_valid	
   	end
+  end
+
+  describe "#click_increment!" do
+
+  	it "should increment the click count by 1 whenever the page is access" do
+  		short_url = create(:url_shorten)
+  		expect(short_url.clicks).to be(0)
+  		expect(short_url.click_increment!).to be(true)
+  		expect(short_url.clicks).to be(1)  		
+  	end
+
   end
 
 end

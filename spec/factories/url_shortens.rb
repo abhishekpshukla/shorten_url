@@ -20,7 +20,7 @@ FactoryBot.define do
     user nil
     original_url "http://www.abhishekpshukla.com/"
     short_url "shortURL"
-    clicks 1
+    clicks 0
     expire_at "2018-04-27 16:44:22"
     is_disable false
     ip_address "MyString"

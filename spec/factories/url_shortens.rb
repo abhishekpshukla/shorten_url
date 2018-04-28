@@ -19,7 +19,7 @@ FactoryBot.define do
   factory :url_shorten do
     user nil
     original_url "http://www.abhishekpshukla.com/"
-    short_url "http://localhost:3000/short_url"
+    short_url "shortURL"
     clicks 1
     expire_at "2018-04-27 16:44:22"
     is_disable false

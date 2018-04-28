@@ -26,7 +26,7 @@ class UrlShorten < ApplicationRecord
   before_save :set_expiry_date
   before_save :shorten_original_url
 
-  protected
+  private
 
   def shorten_original_url
   	new_short_url = ConvertUrl.new(self.original_url)
@@ -40,10 +40,8 @@ class UrlShorten < ApplicationRecord
   	end until self.short_url.present?
   end
 
-  private
-
-  # Admin can set the expire days in application.rb files
   def set_expiry_date
+  	# Admin can set the expire days in application.rb files
   	expire_at = Date.today + Rails.application.config.url_expire_after
   end
 

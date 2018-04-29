@@ -5,26 +5,22 @@ application up and running.
 
 Things you may want to cover:
 
-* Ruby version
-  2.5.1
-
-* Technology Stacks:
-  Ruby - ruby 2.5.1p57
-  Ruby on Rails - 5.2.0
-  MySQL
-  HTML5
-  CSS3
-  Twitter Bootstrape
-  jQuery
-
+Technology Stacks:
+------------------
+  * Ruby - ruby 2.5.1
+  * Ruby on Rails - 5.2.0
+  * MySQL
+  * HTML5
+  * CSS3
+  * Twitter Bootstrape
+  * jQuery
 
 * How to run the test suite
+---------------------------
   $ rake spec
 
-* Services (job queues, cache servers, search engines, etc.)
-  $ None
-
 * Deployment instructions
+-------------------------
   $ cap production deploy
 
 * User Stories

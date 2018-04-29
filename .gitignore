@@ -27,3 +27,4 @@
 /config/database.yml
 /config/secrets.yml
 coverage
+config/deploy/production.rb

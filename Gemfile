@@ -51,6 +51,8 @@ group :development do
   gem "better_errors"
   gem "binding_of_caller"
   gem 'annotate'
+  gem "capistrano", "~> 3.10", require: false
+  gem "capistrano-rails", "~> 1.3", require: false
 end
 
 group :test do

@@ -53,6 +53,8 @@ group :development do
   gem 'annotate'
   gem "capistrano", "~> 3.10", require: false
   gem "capistrano-rails", "~> 1.3", require: false
+  gem 'capistrano-rvm', github: 'capistrano/rvm'
+  gem 'capistrano-passenger', require: false, github: 'capistrano/passenger'
 end
 
 group :test do
